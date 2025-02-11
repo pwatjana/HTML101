@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+  width: 150px; /* Fixed width for all cells - adjust as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
+/* Print Styles */
+@media print {
+  body {
+    margin-top: 5px;
+    margin-left: 10px;
+    /* Scale to fit on page (if needed) */
+    /* You might need to adjust the scale factor */
+    transform: scale(0.8); /* Example: Scale down to 80% */
+    transform-origin: 0 0; /* Set the origin to top-left */
+  }
+
+  /* Optionally, hide elements that are not needed in print */
+  /* For example, if you have a "Download CSV" button */
+  /* #downloadButton {
+    display: none;
+  } */
+
+  /* You can also adjust font sizes, table widths, etc. for print */
+  table {
+      font-size: 10pt; /* Example: Reduce font size for printing */
+  }
+  th, td {
+      width: auto; /* Example: Allow columns to adjust for print */
+  }
+
+}
+</style>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th> 
+       <th>delivery</th>
+      <th>incoterm</th>
+      <th>aec 200</th>
+      <th>страну</th>
+      <th>address</th>
+      <th>request</th>
+      <th>order</th>
+      <th>department</th>
+      <th>product</th>
+      <th>product</th>
+      <th>product name</th>
+      <th>sales price</th>
+      <th>remark</th>
+      <th>incoterm</th>
+      <th>custom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>30</td>
+      <td>New York</td>
+      <td>Bangkok</td>
+      <td>CIF</td>
+      <td>200</td>
+      <td>Thailand</td>
+      <td>50 road</td>
+      <td>1 Feb</td>
+      <td>30</td>
+      <td>polekd</td>
+      <td>thermistor</td>
+      <td>In production</td>
+      <td>In production</td>
+      <th>thermistor</th>
+      <th>90</th>
+      <th>no customer approve</th>
+      <th>DDP</th>
+      
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

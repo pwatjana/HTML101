@@ -13,11 +13,12 @@ th, td {
   padding: 8px;
   text-align: left;
 
-  width: 150px; /* Fixed width for all cells - adjust as needed */
+  width: 100px; /* Fixed width for all cells - adjust as needed */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; 
 }
+
 
 /* Print Styles */
 @media print {
@@ -26,8 +27,9 @@ th, td {
     margin-left: 5px;
     /* Scale to fit on page (if needed) */
     /* You might need to adjust the scale factor */
-    transform: scale(var(--scale-factor)); /* Example: Scale down to 80% >" transform: scale(0.8); " or " scale(var(--scale-factor)); "*/
+    transform: scale(0.4); /* Example: Scale down to 80% >" transform: scale(0.8); " or " scale(var(--scale-factor)); "*/
     transform-origin: 0 0; /* Set the origin to top-left */
+    zoom: 50%;
   }
 
   /* Optionally, hide elements that are not needed in print */
