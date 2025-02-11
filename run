@@ -1,0 +1,6 @@
+save json file on local pc , run http server
+1. Go to project folder> cd C:\Users\66869> cd C:\Users\......\HTML101
+2. in cmd C:\Users\66869\............\HTML101> python -m http.server
+3. get Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+4. Open browser 'http://localhost:8000/table3.html' 
+    example: http://localhost:8000/file_name.html

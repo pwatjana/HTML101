@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quotation Data</title>
+<style>
+body {
+  margin: 0; /* Remove default body margins */
+  font-family: sans-serif; /* Use a standard font */
+}
+
+@media print {
+  body {
+    margin: 10mm; /* Set margins for the printed page */
+  }
+
+
+  table {
+    width: 100%;
+    table-layout: fixed; /* Still useful for initial distribution */
+    font-size: 10pt; /* Adjust starting font size */
+  }
+
+
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for hidden text */
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  /* Optional: Adjust column widths if needed */
+  /* Example: */
+  /*
+  .col-no { width: 5%; }
+  .col-part-name { width: 20%; }
+  ...
+  */
+}
+/* Scaling */
+@page {
+      size: auto;   /* auto is the initial value */
+      margin: 25mm; /* margin you want for the page */
+  }
+  @media print {
+      body {
+          margin: 0;
+      }
+      .print-container {
+          transform-origin: 0 0;
+          transform: scale(0.8); /* Adjust scaling as needed */
+      }
+  }
+
+/* Styles for screen display (can be different from print) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px; /* Larger padding for screen */
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Quotation Data</h1>
+
+<table id="quotationTable">
+  <thead>
+  <tr>
+    <th class="col-no">No.</th>
+    <th class="col-part-name">Part name</th>
+    <th class="col-product-name">Product Name</th>
+    <th>Description</th>
+    <th>COUNTRY</th>
+    <th>LEAD TIME (WEEK)</th>
+    <th>SUPPLIER NAME</th>
+    <th>AEC-200</th>
+    <th>ROHS</th>
+    <th>SPQ (PCS)</th>
+    <th>MOQ (PCS)</th>
+    <th>HS CODE</th>
+    <th>PRODUCT STATUS</th>
+    <th>INCOTERM</th>
+    <th>EXCHANGE RATE</th>
+    <th>Sales price USD</th>
+    <th>Sales price THB</th>
+    <th>Remark</th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<script>
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      const tableBody = document.getElementById('quotationTable').getElementsByTagName('tbody')[0];
+
+      data.Quotation.forEach(item => {
+        const row = tableBody.insertRow();
+        Object.values(item).forEach(text => {
+          const cell = row.insertCell();
+          cell.textContent = text;
+        });
+      });
+    })
+    .catch(error => console.error('Error fetching JSON:', error));
+</script>
+
+</body>
+</html>

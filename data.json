@@ -1,0 +1,44 @@
+{
+    "Quotation": [
+      {
+        "No.": "1",
+        "Part name": "ABC 9OLERINNDFNSOVM-001",
+        "Product Name": "A9934657089",
+        "Description": "INDUCTOR",
+        "COUNTRY": "JAPAN",
+        "LEAD TIME (WEEK)": "16",
+        "SUPPLIER NAME": "TDK",
+        "AEC-200": "YES",
+        "ROHS": "NO",
+        "SPQ (PCS)": "1000",
+        "MOQ (PCS)": "5000",
+        "HS CODE": "8505.9632.1",
+        "PRODUCT STATUS": "IN PRODUCTION",
+        "INCOTERM": "DDP",
+        "EXCHANGE RATE": "35.6405",
+        "Sales price USD": "2.06",
+        "Sales price THB": "73.42",
+        "Remark": "a"
+      },
+      {
+        "No.": "2",
+        "Part name": "NDKPL PROJSIJVNMVLMVKOGRWK",
+        "Product Name": "46057305493",
+        "Description": "COIL",
+        "COUNTRY": "INDONESIA",
+        "LEAD TIME (WEEK)": "39",
+        "SUPPLIER NAME": "NDK",
+        "AEC-200": "NO",
+        "ROHS": "NO",
+        "SPQ (PCS)": "100",
+        "MOQ (PCS)": "600",
+        "HS CODE": "6503.4102.7",
+        "PRODUCT STATUS": "PROMOTION",
+        "INCOTERM": "DDP",
+        "EXCHANGE RATE": "35.6405",
+        "Sales price USD": "3",
+        "Sales price THB": "106.92",
+        "Remark": " "
+      }
+    ]
+  }

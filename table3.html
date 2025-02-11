@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Quotation Data</title>
 <style>
 table {
   width: 100%;
@@ -17,37 +18,30 @@ th, td {
   white-space: nowrap; 
 }
 
-/* Print Styles */
 @media print {
   body {
     margin-top: 5px;
     margin-left: 10px;
     /* Scale to fit on page (if needed) */
     /* You might need to adjust the scale factor */
-    transform: scale(0.5); /* Example: Scale down to 80% */
+    transform: scale(0.4); /* Example: Scale down to 80% */
     transform-origin: 0 0; /* Set the origin to top-left */
   }
+}
+th {
+  background-color: #f2f2f2;
+}
 
-  /* Optionally, hide elements that are not needed in print */
-  /* For example, if you have a "Download CSV" button */
-  /* #downloadButton {
-    display: none;
-  } */
-
-  /* You can also adjust font sizes, table widths, etc. for print */
-  table {
-      font-size: 10pt; /* Example: Reduce font size for printing */
-  }
   th, td {
       width: auto; /* Example: Allow columns to adjust for print */
   }
-
-}
 </style>
 </head>
 <body>
 
-<table>
+<h1>Quotation Data</h1>
+
+<table id="quotationTable">
   <thead>
     <tr>
       <th>No.</th>
@@ -67,34 +61,29 @@ th, td {
       <th>EXCHANGE RATE</th>
       <th>Sales price USD</th>
       <th>Sales price THB</th>
-      <th>Remark</th>      
+      <th>Remark</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>1</th>
-      <th>ABC 9OLERINNDFNSOVM-001</th>
-      <th>A9934657089</th>
-      <th>INDUCTOR</th>
-      <th>JAPAN</th>
-      <th>16</th>
-      <th>TDK</th>
-      <th>YES</th>
-      <th>NO</th>
-      <th>1000</th>
-      <th>5000</th>
-      <th>8505.9632.1</th>
-      <th>IN PRODUCTION</th>
-      <th>DDP</th>
-      <th>35.6405</th>
-      <th>2.06</th>
-      <th>73.42</th>
-      <th></th>
-    
-      
-    </tr>
   </tbody>
 </table>
+
+<script>
+  fetch('data.json') // Fetch the JSON file
+    .then(response => response.json()) // Parse the response as JSON
+    .then(data => {
+      const tableBody = document.getElementById('quotationTable').getElementsByTagName('tbody')[0];
+
+      data.Quotation.forEach(item => { // Iterate through the Quotation array
+        const row = tableBody.insertRow(); // Create a new table row
+        Object.values(item).forEach(text => { // Iterate through the values of each item
+          const cell = row.insertCell(); // Create a new table cell
+          cell.textContent = text; // Set the cell text to the value
+        });
+      });
+    })
+    .catch(error => console.error('Error fetching JSON:', error));
+</script>
 
 </body>
 </html>
