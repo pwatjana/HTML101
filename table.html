@@ -1,38 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+<title>Display JSON Data in Table</title>
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+
+  width: 150px; /* Fixed width for all cells - adjust as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
+/* Print Styles */
+@media print {
+  body {
+    margin-top: 5px;
+    margin-left: 5px;
+    /* Scale to fit on page (if needed) */
+    /* You might need to adjust the scale factor */
+    transform: scale(var(--scale-factor)); /* Example: Scale down to 80% >" transform: scale(0.8); " or " scale(var(--scale-factor)); "*/
+    transform-origin: 0 0; /* Set the origin to top-left */
+  }
+
+  /* Optionally, hide elements that are not needed in print */
+  /* For example, if you have a "Download CSV" button */
+  /* #downloadButton {
+    display: none;
+  } */
+
+
+
+th {
+  background-color: #f2f2f2;
+}
+</style>
 </head>
 <body>
-    <!--Build table-->
-    <table>
-        <!--Table body strat first row with header-->
-        <thead>
-            <tr>
-                <th>Month</th>
-                <th>Saving</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--create row-->
-            <tr>
-                <!--data in 1 row for each header-->
-                <th>January</th>
-                <td>100</td>
-            </tr>
-            <tr>
-                <th>Febuary</th>
-                <td>200</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Sum</th>
-                <td>300</td>
-            </tr>
-        </tfoot>
-    </table>
+
+<h1>JSON Data Table</h1>
+
+<table id="jsonTable">
+  <thead>
+    <tr>
+      </tr>
+  </thead>
+  <tbody>
+    </tbody>
+</table>
+
+<script>
+  // Sample JSON data (replace with your actual JSON data or URL)
+  const jsonData = [
+    {"name": "John Doe", "age": 30, "delivery place":"bangkok", "incoterm":"ddp", "AEC 200":"Yes", "city": "New York","company": "abc", "qty": 15, "country": "america","unit price": "90", "sales amt": 1350, "address": "50 road , blvd","request date": "1 Feb 25", "order no.": "30-polekd", "department": "sourcing","section": "purchase","product name": "thermistor","product status": "In production"}
+  ];
+
+  // Or, fetch JSON data from a file or URL:
+  /*
+  fetch('your_json_file.json')  // Or fetch('your_api_endpoint')
+    .then(response => response.json())
+    .then(jsonData => {
+      populateTable(jsonData);
+    })
+    .catch(error => console.error('Error fetching JSON:', error));
+  */
+
+
+  function populateTable(jsonData) {
+    const table = document.getElementById('jsonTable');
+    const thead = table.querySelector('thead tr');
+    const tbody = table.querySelector('tbody');
+
+    // Clear existing table content (important if you're updating the table)
+    thead.innerHTML = '';
+    tbody.innerHTML = '';
+
+
+    if (jsonData.length === 0) {
+        tbody.innerHTML = "<tr><td colspan='100%'>No data available.</td></tr>"; // Or however many columns you might have.
+        return; // Exit early if no data
+    }
+
+
+    // Create table headers dynamically from the first object's keys
+    const firstItem = jsonData[0];
+    for (const key in firstItem) {
+      const th = document.createElement('th');
+      th.textContent = key;
+      thead.appendChild(th);
+    }
+
+    // Create table rows dynamically
+    jsonData.forEach(item => {
+      const row = tbody.insertRow();
+      for (const key in item) {
+        const cell = row.insertCell();
+        cell.textContent = item[key];
+      }
+    });
+  }
+
+  // Initial population of the table (if using local data)
+  populateTable(jsonData);
+
+
+
+</script>
+
 </body>
 </html>
