@@ -5,34 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {background-color: powderblue;}
+        h1   {color: blue;}
+        p    {color: red;}
+        </style>
 </head>
 
-<body>
+<body >
     <!-- for comment only-->>
     "Hello"
-    <h1> Topic1 </h1>
-    <h2> Topic2 </h2>
-    <h3> Topic3 </h3>
-    <h4> Topic4 </h4>
+    <h1 style="color:blue;"> Topic1 </h1>
+    <h2 style="font-family:verdana;"> Topic2 </h2>
+    <h3 style="font-size:300%;"> Topic3 </h3>
+    <h4 style="text-align:center;"> Topic4 </h4>
     <h5> Topic5 </h5>
     <h6> Topic6 </h6>
+    <h1 style="font-size:60px;">Heading 1</h1><!--CSS inline Style-->
+<!--Use the style attribute for styling HTML elements
+Use background-color for background color
+Use color for text colors
+Use font-family for text fonts
+Use font-size for text sizes
+Use text-align for text alignment-->
+
+<!--Avoid CSS inline Style
+External stylesheets:
+use the principle of separation of concerns, this makes both the HTML and CSS easier to read and more organized
+can be used on multiple HTML documents without having to rewrite CSS declarations
+allow global styles to be changed easily, new changes will be applied to the entire HTML document the external CSS is used on
+     <VS>
+Inline CSS:
+styles will have to be applied individually to HTML elements, and do not use the principle of separation of concerns, this makes both the HTML and CSS harder to read/disorganized
+styles cannot be used on multiple HTML pages - styles have to be rewritten for each page
+styles are not global, if a change is needed for a particular style it will need to be changed on the element itself-->
+
 
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi eum adipisci quos blanditiis esse aliquid ea
-        deserunt ipsam est ullam, at sapiente molestias quo perferendis. Culpa possimus voluptate ut mollitia!
-
+        Lorem ipsum dolor sit amet consectetur,             adipisicing elit. At, cumque pariatur repellat eius ea labore nulla eos
+        vero voluptates natus nam odit aperiam quisquam 
+        incidunt et in quos repudiandae laborum!
     </p>
+    <hr>  <!--Horizontal Rules used to separate content with horizon line across the page-->
     <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, cumque pariatur repellat eius ea labore nulla eos
-        vero voluptates natus nam odit aperiam quisquam incidunt et in quos repudiandae laborum!
+        Lorem ipsum dolor sit amet consectetur,             adipisicing elit. At, cumque pariatur repellat eius ea labore nulla eos
+        vero voluptates natus nam odit aperiam quisquam <br> incidunt et in quos repudiandae laborum!
 
     </p>
+<!--A paragraph always starts on a new line, and browsers automatically add some white space (a margin) before and after a paragraph.
+-Large or small screens, and resized windows will create different results.
+-With HTML, you cannot change the display by adding extra spaces or extra lines in your HTML code. The browser will automatically remove any extra spaces and lines when the page is displayed.
+<br> element defines a line break (a new line) without starting a new paragraph)-->
+
+<!--<pre> </pre> element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks:
+-->
+    <pre>
+    My Bonnie lies over the ocean.
+  
+    My Bonnie lies over the sea.
+  
+    My Bonnie lies over the ocean.
+  
+    Oh, bring back my Bonnie to me.
+    </pre>
+
     <strong> bold </strong>
     <b> bold </b>
     <em> italic </em>
     <i> italic </i>
+<!--
+in HTML strong will display as b and em will displaw as i , the difference in meaning of strong and em means that the text is "important" not just formating.  
+Tip: A screen reader will pronounce the words in <em> with an emphasis, using verbal stress.
+-->
+    <p>My favorite color is <del>blue</del> <ins>red</ins>.</p>
+<!--
+<del> </del> add cross to text.
+<ins> </ins> add underline to text.
+    -->
+    <p>H <sub>2</sub> O.</p>
+    <p>2 <sup>2</sup></p>
 
-    <a href="https://developer.mozilla.org/en-US/" target="_blank">Mdn source | </a>
+    <a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener">Mdn source | </a>
+    <!-- rel=noopener should mention for all outsource reference-->
     <a href="contact.html">Contact</a>
 
     <ul>
@@ -43,9 +97,19 @@
         <li>Product</li>
         <li>Profile</li>
     </ol>
-    <img src="https://learn.futureskill.co/images/fs-new-logo-light.png" alt = "logo of futureskill"/>
+
+    <img src="https://learn.futureskill.co/images/fs-new-logo-light.png" alt = "logo of futureskill" width="350" height="50"/>
 
     <br/> line <br/> instagram
+
+    <p>Here is a quote from bitkub</p>
+
+    <blockquote cite="https://www.bitkub.com/th">
+        ซื้อขายคริปโต กับ บิทคับ เอ็กซ์เชนจ์
+<q>ซื้อขาย Bitcoin, Ethereum, USDT, XRP, Dogecoin, Polkadot และเหรียญอื่น ๆ ด้วยเงินบาทที่ บิทคับ เอ็กซ์เชนจ์</q>
+    </blockquote>
+
+
 
 <div>div1</div>
 <div>div2</div>
@@ -61,3 +125,30 @@
 </body>
 
 </html>
+
+<!--
+/*Absolute URL is contain "Protocol : HTTPS , HOST domain name: developer or futureskill"
+"https://developer.mozilla.org/en-US/"
+"https://learn.futureskill.co/images/fs-new-logo-light.png"
+Use to link resource from another site.
+*/
+/*Relative URL Use to link resource within the same website.
+"<a href="contact.html">Contact</a>" Path relative url a link within same folder
+"<a href="folder2/contact.html">Contact</a>" Path relative where file is in sub folder
+but difficult to manage for manyfile and many subfolder, if need change later.
+*/
+/*Root-Relative URL can fixed problem from relative url when moving code between server.
+by add "/" at the start of the file represent as root of the site.
+"<a href="/contact.html">Contact</a>" 
+"<a href="/folder2/contact.html">Contact</a>" 
+*/
+/*Absolute URL is contain "Protocol : HTTPS , HOST domain name: developer or futureskill"
+"https://developer.mozilla.org/en-US/"
+"https://learn.futureskill.co/images/fs-new-logo-light.png"
+Use to link resource from another site.
+*/
+/*Relative URL Use to link resource within the same website.
+"<a href="contact.html">Contact</a>" Path relative url a link within same folder
+"<a href="folder2/contact.html">Contact</a>" Path relative where file is in sub folder
+but difficult to manage for manyfile and many subfolder, if need change later.
+*/-->
